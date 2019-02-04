@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7477d41-bb0d-4436-a73e-7638aa6b1b1a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2310/SIMARCBack/SCMenuSvc.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SCMenuSvc.xsd" MetadataType="Schema" ID="64d24ca6-78fc-4fb5-a754-29a6f8eee706" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd1" />
+    <MetadataFile FileName="SCMenuSvc1.xsd" MetadataType="Schema" ID="f94feb6e-7d7a-4e32-a74c-236be0363131" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd2" />
+    <MetadataFile FileName="SCMenuSvc.disco" MetadataType="Disco" ID="a54a158d-6c26-4eb8-8767-72a8526d94f3" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?disco" />
+    <MetadataFile FileName="SCMenuSvc2.xsd" MetadataType="Schema" ID="a37cb2f2-17af-40a3-9b22-fdd028f8d221" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd3" />
+    <MetadataFile FileName="SCMenuSvc.wsdl" MetadataType="Wsdl" ID="78bf36f2-8fa1-4648-8c30-7747c78088d6" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?wsdl" />
+    <MetadataFile FileName="SCMenuSvc3.xsd" MetadataType="Schema" ID="839c5299-1c7e-4462-a9dc-c2773575a5c6" SourceId="1" SourceUrl="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
