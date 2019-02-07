@@ -40,23 +40,23 @@
         }
         
        .myButton {
-	    -moz-box-shadow:inset 0px 1px 0px 0px #fad4d7;
-	    -webkit-box-shadow:inset 0px 1px 0px 0px #fad4d7;
-	    box-shadow:inset 0px 1px 0px 0px #fad4d7;
+	    -moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	    -webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	    box-shadow:inset 0px 1px 0px 0px #dcecfb;
 	    
-	    <%--background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f57880), color-stop(1, #f51827));
-	    background:-moz-linear-gradient(top, #f57880 5%, #f51827 100%);
-	    background:-webkit-linear-gradient(top, #f57880 5%, #f51827 100%);
-	    background:-o-linear-gradient(top, #f57880 5%, #f51827 100%);
-	    background:-ms-linear-gradient(top, #f57880 5%, #f51827 100%);
-	    background:linear-gradient(to bottom, #f57880 5%, #f51827 100%);--%>
+	    <%--background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
+	    background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	    background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	    background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	    background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	    background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);--%>
 	    
-	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f57880', endColorstr='#f51827',GradientType=0);
-	    <%--background-color:#f57880;--%>
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
+	    <%--background-color:#bddbfa;--%>
 	    -moz-border-radius:6px;
 	    -webkit-border-radius:6px;
 	    border-radius:6px;
-	    border:0px solid #f27e88;
+	    border:0px solid #84bbf3;
 	    display:inline-block;
 	    cursor:pointer;
 	    <%--color:#ffffff;--%>
@@ -65,17 +65,17 @@
 	    font-weight:bold;
 	    padding:5px 5px;
 	    text-decoration:none;
-	    text-shadow:0px 1px 0px #c7545d;
+	    text-shadow:0px 1px 0px #528ecc;
     }
     .myButton:hover {
-	    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d11320), color-stop(1, #f57880));
-	    background:-moz-linear-gradient(top, #d11320 5%, #f57880 100%);
-	    background:-webkit-linear-gradient(top, #d11320 5%, #f57880 100%);
-	    background:-o-linear-gradient(top, #d11320 5%, #f57880 100%);
-	    background:-ms-linear-gradient(top, #d11320 5%, #f57880 100%);
-	    background:linear-gradient(to bottom, #d11320 5%, #f57880 100%);
-	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d11320', endColorstr='#f57880',GradientType=0);
-	    background-color:#d11320;
+	    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #108fc6), color-stop(1, #bddbfa));
+	    background:-moz-linear-gradient(top, #108fc6 5%, #bddbfa 100%);
+	    background:-webkit-linear-gradient(top, #108fc6 5%, #bddbfa 100%);
+	    background:-o-linear-gradient(top, #108fc6 5%, #bddbfa 100%);
+	    background:-ms-linear-gradient(top, #108fc6 5%, #bddbfa 100%);
+	    background:linear-gradient(to bottom, #108fc6 5%, #bddbfa 100%);
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#108fc6', endColorstr='#bddbfa',GradientType=0);
+	    background-color:#108fc6;
     }
     .myButton:active {
 	    position:relative;
@@ -125,8 +125,8 @@
                                 <SettingsLoadingPanel Enabled="false" />
                                 <PanelCollection>
                                     <dx:PanelContent ID="PanelContent1" runat="server">
-                                    <%--<asp:Image ID="image1" runat="server" ImageAlign="AbsMiddle"
-                                        ImageUrl="~/Images/Login Page.png" Width="857px" Height="375px" />--%>
+                                    <asp:Image ID="image1" runat="server" ImageAlign="AbsMiddle"
+                                        ImageUrl="~/Images/SimarcLogo.jpg" Width="200px" />
                                         <br />
                                         <br />
 
@@ -139,7 +139,9 @@
                                             ErrorMessage="{Username Harus Diisi}" ForeColor="#FF3300" /><br />
 
                                         <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Password" CssClass="label"></dx:ASPxLabel>
-                                        <dx:ASPxTextBox ID="PasswordTextBox" runat="server" Width="100%" CssClass="TextBox"></dx:ASPxTextBox>
+                                        <dx:ASPxTextBox ID="PasswordTextBox" runat="server" Width="100%" CssClass="TextBox" 
+                                                Password="True">
+                                        </dx:ASPxTextBox>
 
                                         <%--<Validasi Pass>--%>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
