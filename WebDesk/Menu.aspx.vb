@@ -34,7 +34,7 @@ Partial Class Menu
             lcCmd = lcCmd + "SYS_APP_GROUP (nolock) ON SYS_APP.APP_GROUP_ID = SYS_APP_GROUP.APP_GROUP_ID INNER JOIN "
             lcCmd = lcCmd + "SYS_USER_ROLE (nolock) ON SYS_ROLE_APP.ROLE_ID = SYS_USER_ROLE.ROLE_ID "
             lcCmd = lcCmd + "WHERE SYS_USER_ROLE.USER_ID = '" + Session("K_USER_ID") + "'"
-            lcCmd = lcCmd + "AND SYS_APP.APP_TYPE='MOBILE' "
+            lcCmd = lcCmd + "AND SYS_APP.APP_TYPE='WEB' "
             lcCmd = lcCmd + "ORDER BY MODULE, SYS_APP_GROUP.APP_GROUP_NAME,SYS_APP.APP_NAME"
 
             SqlDataSource1.SelectCommand = lcCmd
