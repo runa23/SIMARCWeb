@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SCMenuSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SC_Common" />
+      <xsd:import schemaLocation="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2310/SIMARCBack/SCMenuSvc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISCMenuSvc_GetListApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListApp" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_GetListApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_GetListApp_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q1:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_Login_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q2:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_GetRoleApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleApp" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_GetRoleApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_GetRoleApp_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q3:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_ChangePassword_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q4:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_UpdateAppDll_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppDll" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_UpdateAppDll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppDllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_UpdateAppDll_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q5:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_AppDllLatestVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppDllLatestVersion" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_AppDllLatestVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppDllLatestVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISCMenuSvc_AppDllLatestVersion_SC_ServiceExceptionsFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/SC_Common" name="detail" element="q6:SC_ServiceExceptions" />
+  </wsdl:message>
+  <wsdl:portType name="ISCMenuSvc">
+    <wsdl:operation name="GetListApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/GetListApp" message="tns:ISCMenuSvc_GetListApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/GetListAppResponse" message="tns:ISCMenuSvc_GetListApp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/GetListAppSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_GetListApp_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/Login" message="tns:ISCMenuSvc_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/LoginResponse" message="tns:ISCMenuSvc_Login_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/LoginSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_Login_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/GetRoleApp" message="tns:ISCMenuSvc_GetRoleApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/GetRoleAppResponse" message="tns:ISCMenuSvc_GetRoleApp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/GetRoleAppSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_GetRoleApp_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/ChangePassword" message="tns:ISCMenuSvc_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/ChangePasswordResponse" message="tns:ISCMenuSvc_ChangePassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/ChangePasswordSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_ChangePassword_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppDll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/UpdateAppDll" message="tns:ISCMenuSvc_UpdateAppDll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/UpdateAppDllResponse" message="tns:ISCMenuSvc_UpdateAppDll_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/UpdateAppDllSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_UpdateAppDll_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AppDllLatestVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISCMenuSvc/AppDllLatestVersion" message="tns:ISCMenuSvc_AppDllLatestVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISCMenuSvc/AppDllLatestVersionResponse" message="tns:ISCMenuSvc_AppDllLatestVersion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISCMenuSvc/AppDllLatestVersionSC_ServiceExceptionsFault" name="SC_ServiceExceptionsFault" message="tns:ISCMenuSvc_AppDllLatestVersion_SC_ServiceExceptionsFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISCMenuSvc" type="tns:ISCMenuSvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListApp">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/GetListApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleApp">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/GetRoleApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppDll">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/UpdateAppDll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AppDllLatestVersion">
+      <soap:operation soapAction="http://tempuri.org/ISCMenuSvc/AppDllLatestVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SC_ServiceExceptionsFault">
+        <soap:fault use="literal" name="SC_ServiceExceptionsFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SCMenuSvc">
+    <wsdl:port name="BasicHttpBinding_ISCMenuSvc" binding="tns:BasicHttpBinding_ISCMenuSvc">
+      <soap:address location="http://localhost:2310/SIMARCBack/SCMenuSvc.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
