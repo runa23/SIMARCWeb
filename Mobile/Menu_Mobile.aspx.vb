@@ -3,15 +3,16 @@ Imports SC_BackEnd
 Imports System.Data.Common
 Imports System.IO
 Imports DevExpress.Export
-
-Partial Class Menu
+Imports DevExpress.Web
+Partial Class Menu_Mobile
     Inherits SC_Pagebase
+
+    Public LOsTR As String = ""
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         ExportSettings.DefaultExportType = ExportType.WYSIWYG
 
         If Not IsPostBack Then
-
             Dim loData As System.Data.DataView
             Dim lcLastGroup As String = ""
             Dim lcLastModule As String = ""
@@ -42,7 +43,7 @@ Partial Class Menu
 
             loData = (SqlDataSource1.Select(DataSourceSelectArguments.Empty))
 
-            Page.Header.Title = "SIMARC"
+            Page.Header.Title = "SIMARC Mobile"
             Session("PRIVILEGE_" + lcPage) = False
 
             For i As Integer = 0 To loData.Count - 1
@@ -69,15 +70,15 @@ Partial Class Menu
 
 
                     ASPxTreeView1.Nodes().FindByName(row("APP_GROUP_ID") + "-" + row("MODULE_ID")).Nodes.Add(row("APP_NAME"), row("APP_ID"))
-                    ASPxTreeView1.Nodes().FindByName(row("APP_GROUP_ID") + "-" + row("MODULE_ID")).Nodes.FindByName(row("APP_ID")).NavigateUrl = "menu.aspx?page=" + row("APP_ID")
+                    ASPxTreeView1.Nodes().FindByName(row("APP_GROUP_ID") + "-" + row("MODULE_ID")).Nodes.FindByName(row("APP_ID")).NavigateUrl = "Menu_Mobile.aspx?page=" + row("APP_ID")
 
                     'ASPxTreeView1.Nodes().FindByName(row("APP_GROUP_NAME")).Nodes.Add(row("APP_NAME"), row("APP_ID"))
                     'ASPxTreeView1.Nodes().FindByName(row("APP_GROUP_NAME")).Nodes.FindByName(row("APP_ID")).NavigateUrl = "menu.aspx?page=" + row("APP_ID")
 
                     If lcPage = row("APP_ID") Then
-                        pagesASPxLabel.Text = "SIMARC - " + row("APP_NAME").ToString.ToUpper
-                        Page.Header.Title = "SIMARC - " + row("APP_NAME").ToString.ToUpper
-                        Session("PRIVILEGE_" + lcPage) = True
+                        LOsTR = row("APP_NAME").ToString.ToUpper
+                        Page.Header.Title = row("APP_NAME").ToString.ToUpper
+                        Session("PRIVILEGE_" & lcPage) = True
                     End If
                 End If
             Next
@@ -85,23 +86,27 @@ Partial Class Menu
 
             If (Request.Browser.Type.ToString.ToUpper.Contains("SAFARI")) Then
 
-                If Not String.IsNullOrWhiteSpace(lcPage) And Session("PRIVILEGE_" + lcPage) = True Then
-                    testFrame.Attributes("src") = "Pages/" + lcPage + ".aspx"
-                Else
-                    testFrame.Attributes("src") = "home.aspx"
-                End If
             Else
                 If Not String.IsNullOrWhiteSpace(lcPage) And Session("PRIVILEGE_" + lcPage) = True Then
-                    ASPxSplitter2.GetPaneByName("ContentUrlPane").ContentUrl = "~/Pages/" + lcPage + ".aspx"
+                    ASPxSplitter1.GetPaneByName("ContentUrlPane").ContentUrl = "~/Pages/" + lcPage + ".aspx"
                 Else
                     If lcPage = "user" Then
-                        ASPxSplitter2.GetPaneByName("ContentUrlPane").ContentUrl = "~/pages/user.aspx"
+                        ASPxSplitter1.GetPaneByName("ContentUrlPane").ContentUrl = "~/pages/user.aspx"
                     Else
-                        ASPxSplitter2.GetPaneByName("ContentUrlPane").ContentUrl = "~/home.aspx"
+                        ASPxSplitter1.GetPaneByName("ContentUrlPane").ContentUrl = "~/home.aspx"
                     End If
 
                 End If
             End If
+        End If
+    End Sub
+    Protected Sub pageASPxLabel_Init(ByVal sender As Object, ByVal e As EventArgs)
+        Dim label = DirectCast(sender, ASPxLabel)
+
+        If LOsTR = "" Then
+            label.Text = "SIMARC Mobile"
+        Else
+            label.Text = LOsTR
         End If
     End Sub
 End Class

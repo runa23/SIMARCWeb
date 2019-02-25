@@ -16,14 +16,14 @@
         }
         #FullScreenContainer.fullscreen{
         z-index: 1; 
-        width: 100%; 
-        height: 100%; 
+        width: 200%; 
+        height: 200%; 
         position: fixed; 
         top: 0; 
         left: 0; 
         }
 
-        #FullScreenContainer{ width:100%; height:100%;background:#f2f2f2;}
+        #FullScreenContainer{ width:200%; height:200%;background:#f2f2f2;}
         
         body, html
         {
@@ -33,5 +33,5 @@
         
         .style1
         {
-            width: 87px;
+            width: 82px;
         }
