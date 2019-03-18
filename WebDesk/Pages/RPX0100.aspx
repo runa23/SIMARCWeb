@@ -21,13 +21,13 @@
                 <tr>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnRefresh" runat="server" Height="60px" Width="80px" 
-                            Text="Refresh" Theme="RedWine">
+                            Text="Refresh" Theme="DevEx">
                         </dx:ASPxButton>
                     </td>
                     <td>&nbsp;</td>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnFieldList" runat="server" Height="60px" Width="80px"
-                            Text="Field List" AutoPostBack="false" Theme="RedWine">
+                            Text="Field List" AutoPostBack="false" Theme="DevEx">
                             <ClientSideEvents Click="function(s, e) {ASPxPivotGrid1.SetCustomizationFieldsVisibility();}" />
                         </dx:ASPxButton>
                     </td>
@@ -38,7 +38,7 @@
                     <td>&nbsp;</td>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnExportToPDF" runat="server" Height="60px" Width="80px"
-                               Text="Export To PDF" Theme="RedWine">
+                               Text="Export To PDF" Theme="DevEx">
                                <ClientSideEvents Click="function(s, e) { ASPxPivotGrid1.PerformCallback();}" />
                         </dx:ASPxButton>
                     </td>

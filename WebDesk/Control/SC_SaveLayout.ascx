@@ -3,7 +3,7 @@
 <%@ Register assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 
 <dx:ASPxButton ID="PopUpASPxButton" runat="server" Height="60px" 
-    Text="Save Layout" AutoPostBack="False" Theme="RedWine">
+    Text="Save Layout" AutoPostBack="False" Theme="DevEx">
     <ClientSideEvents Click="function(s, e) {
 	PopUpLayout.Show();
 }" />

@@ -22,13 +22,13 @@
                 <tr>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnRefresh" runat="server" Height="60px" Width="80px" 
-                            Text="Refresh" Theme="RedWine">
+                            Text="Refresh" Theme="DevEx">
                         </dx:ASPxButton>
                     </td>
                     <td>&nbsp;</td>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnFieldList" runat="server" Height="60px" Width="80px"
-                            Text="Field List" AutoPostBack="false" Theme="RedWine">
+                            Text="Field List" AutoPostBack="false" Theme="DevEx">
                             <ClientSideEvents Click="function(s, e) {ASPxPivotGrid1.SetCustomizationFieldsVisibility();}" />
                         </dx:ASPxButton>
                     </td>
@@ -39,7 +39,7 @@
                     <td>&nbsp;</td>
                     <td>
                         <dx:ASPxButton ID="ASPxBtnExportToPDF" runat="server" Height="60px" Width="80px"
-                               Text="Export To PDF" Theme="RedWine">
+                               Text="Export To PDF" Theme="DevEx">
                                <ClientSideEvents Click="function(s, e) { ASPxPivotGrid1.PerformCallback();}" />
                         </dx:ASPxButton>
                     </td>
@@ -132,10 +132,6 @@
                     FieldName="MAJOR" Name="fieldMAJOR" Options-ShowInFilter="True" 
                     Caption="Major">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldDAMAGE" Area="DataArea" AreaIndex="3" 
-                    FieldName="DAMAGE" Name="fieldDAMAGE" Options-ShowInFilter="True" 
-                    Caption="Damage">
-                </dx:PivotGridField>
                 <dx:PivotGridField ID="fieldMAINTENANCEID" Area="RowArea" AreaIndex="0" 
                     FieldName="MAINTENANCE_ID" Name="fieldMAINTENANCEID" 
                     Options-ShowInFilter="True" Caption="Maintenance ID">
@@ -148,35 +144,35 @@
                     FieldName="FROM_DATE" Name="fieldFROMDATE" Options-ShowInFilter="True" 
                     Caption="From Date" CellFormat-FormatString="dd/MM/yyyy" 
                     CellFormat-FormatType="DateTime" ValueFormat-FormatString="dd/MM/yyyy" 
-                    ValueFormat-FormatType="DateTime">
+                    ValueFormat-FormatType="DateTime" Visible="False">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldTODATE" Area="RowArea" AreaIndex="3" 
+                <dx:PivotGridField ID="fieldTODATE" Area="RowArea" AreaIndex="2" 
                     FieldName="TO_DATE" Name="fieldTODATE" Options-ShowInFilter="True" 
                     Caption="To Date" CellFormat-FormatString="dd/MM/yyyy" 
                     CellFormat-FormatType="DateTime" ValueFormat-FormatString="dd/MM/yyyy" 
-                    ValueFormat-FormatType="DateTime">
+                    ValueFormat-FormatType="DateTime" Visible="False">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldBARCODE" Area="RowArea" AreaIndex="4" 
+                <dx:PivotGridField ID="fieldBARCODE" Area="RowArea" AreaIndex="2" 
                     FieldName="BARCODE" Name="fieldBARCODE" Options-ShowInFilter="True" 
                     Caption="Barcode">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldTYPEID" Area="RowArea" AreaIndex="5" 
+                <dx:PivotGridField ID="fieldTYPEID" Area="RowArea" AreaIndex="3" 
                     FieldName="TYPE_ID" Name="fieldTYPEID" Options-ShowInFilter="True" 
                     Caption="Type">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldMERKID" Area="RowArea" AreaIndex="6" 
+                <dx:PivotGridField ID="fieldMERKID" Area="RowArea" AreaIndex="4" 
                     FieldName="MERK_ID" Name="fieldMERKID" Options-ShowInFilter="True" 
                     Caption="Merk">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldMODELID" Area="RowArea" AreaIndex="7" 
+                <dx:PivotGridField ID="fieldMODELID" Area="RowArea" AreaIndex="5" 
                     FieldName="MODEL_ID" Name="fieldMODELID" Options-ShowInFilter="True" 
                     Caption="Model">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldOUTLETNAME" Area="RowArea" AreaIndex="8" 
+                <dx:PivotGridField ID="fieldOUTLETNAME" Area="RowArea" AreaIndex="6" 
                     FieldName="OUTLET_NAME" Name="fieldOUTLETNAME" Options-ShowInFilter="True" 
                     Caption="Outlet">
                 </dx:PivotGridField>
-                <dx:PivotGridField ID="fieldCASENAME" Area="RowArea" AreaIndex="9" 
+                <dx:PivotGridField ID="fieldCASENAME" Area="RowArea" AreaIndex="7" 
                     FieldName="CASE_NAME" Name="fieldCASENAME" Options-ShowInFilter="True" 
                     Caption="Kasus">
                 </dx:PivotGridField>

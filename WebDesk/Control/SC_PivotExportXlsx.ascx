@@ -6,7 +6,7 @@
 
 
  <dx:ASPxButton ID="ExportXlsASPxButton" Height="60px" runat="server" 
-    Text="Export Excel" AutoPostBack="False" Theme="RedWine">
+    Text="Export Excel" AutoPostBack="False" Theme="DevEx">
     <ClientSideEvents Click="function (s, e) {ExportXlsxPopupControl.Show();}" />
  </dx:ASPxButton>
 

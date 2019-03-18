@@ -26,14 +26,14 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="email">Barcode</label>
+                        <label for="email">Barcode Cabinet</label>
                         <br />
                         <dx:BootstrapTextBox ID="BarcodeTextBox" runat="server" NullText="Barcode"
                                         caption="" AutoPostBack="true">
                          </dx:BootstrapTextBox>
                          <br />
                          <asp:RequiredFieldValidator ID="rf1" Display="Dynamic" ControlToValidate="BarcodeTextBox"
-                                runat="server" ErrorMessage="Barcode tidak boleh kosong!" CssClass="bg-waring" />
+                                runat="server" ErrorMessage="Barcode tidak boleh kosong!" CssClass="bg-warning" />
                     </div>
                     <div class="form-group">
                          <div class="col-sm-4">
@@ -79,7 +79,7 @@
                       </div>
 
                       <div class="form-group">
-                         <label for="email">Outlet</label>
+                         <label for="email">Kode Outlet</label>
                          <br />
                          <dx:BootstrapTextBox ID="OutletTextBox" runat="server" NullText="Outlet"
                                         Caption="" AutoPostBack = "true">
@@ -88,7 +88,7 @@
                          <asp:RequiredFieldValidator ID="rf2" Display="Dynamic" ControlToValidate="OutletTextBox"
                                 runat="server" ErrorMessage="Outlet tidak boleh kosong!" CssClass="bg-warning" />
 
-                                <div class="col-sm-4">
+                      <div class="col-sm-4">
                         <dx:BootstrapFormLayout ID="form3" runat="server"
                             AlignItemCaptionsInAllGroups="True" DataSourceID="SqlDSOutlet">
                             <Items>
@@ -169,12 +169,7 @@
                                                     valueunchecked="0"></propertiescheckedit>
                                             </dx:BootstrapGridViewCheckColumn>
                                             <dx:BootstrapGridViewCheckColumn FieldName="MAJOR" VisibleIndex="5" 
-                                                Caption="Major"  >
-                                                <propertiescheckedit valuechecked="1" valuetype="System.Int32" 
-                                                    valueunchecked="0"></propertiescheckedit>
-                                            </dx:BootstrapGridViewCheckColumn>
-                                            <dx:BootstrapGridViewCheckColumn FieldName="DAMAGE" VisibleIndex="6" 
-                                                Caption="Damage"  >
+                                                Caption="Major" >
                                                 <propertiescheckedit valuechecked="1" valuetype="System.Int32" 
                                                     valueunchecked="0"></propertiescheckedit>
                                             </dx:BootstrapGridViewCheckColumn>
@@ -238,7 +233,8 @@
 
                           <asp:SqlDataSource ID="SqlDSOutlet" runat="server" 
                               ConnectionString="<%$ ConnectionStrings:SIMARCConnectionString %>" 
-                              SelectCommand="SELECT [OUTLET_NAME], [OUTLET_ADDRESS], [OUTLET_PHONE] FROM [M_OUTLET] WHERE ([OUTLET_ID] = @OUTLET_ID)">
+                              SelectCommand="SELECT [OUTLET_NAME], [OUTLET_ADDRESS] = ISNULL([OUTLET_ADDRESS],''), 
+                                             [OUTLET_PHONE] = ISNULL([OUTLET_PHONE],'') FROM [M_OUTLET] WHERE ([OUTLET_ID] = @OUTLET_ID)">
                               <SelectParameters>
                                   <asp:Parameter Name="OUTLET_ID" Type="String" />
                               </SelectParameters>
@@ -253,7 +249,6 @@
                                         ,GOOD = ISNULL(A.[GOOD],'')
                                         ,MINOR = ISNULL(A.[MINOR],'')
                                         ,MAJOR = ISNULL(A.[MAJOR],'')
-                                        ,DAMAGE = ISNULL(A.[DAMAGE],'')
                                         FROM [SIMARC].[dbo].[T_MAINTENANCE_DETAIL] A(NOLOCK)
                                         RIGHT JOIN M_CASE B ON A.CASE_ID = B.CASE_ID 
 		                                WHERE A.MAINTENANCE_ID= @MAINTENANCE_ID" 
@@ -261,8 +256,7 @@
                         UpdateCommand = "UPDATE T_MAINTENANCE_DETAIL
                                                 SET GOOD = @GOOD,
                                                     MINOR = @MINOR,
-                                                    MAJOR = @MAJOR,
-                                                    DAMAGE = @DAMAGE
+                                                    MAJOR = @MAJOR
                                                  WHERE MAINTENANCE_ID = @MAINTENANCE_ID
                                                  AND CASE_ID = @CASE_ID"
                                         >
@@ -273,7 +267,6 @@
                             <asp:Parameter Name="GOOD" Type="Boolean" />
                             <asp:Parameter Name="MINOR" Type="Boolean" />
                             <asp:Parameter Name="MAJOR" Type="Boolean" />
-                            <asp:Parameter Name="DAMAGE" Type="Boolean" />
                             <asp:Parameter Name="MAINTENANCE_ID" Type="String" />
                             <asp:Parameter Name="CASE_ID" Type="Int16" />
                         </UpdateParameters>
@@ -297,13 +290,12 @@
                         
                                         INSERT INTO T_MAINTENANCE_DETAIL 
 	                                     ( MAINTENANCE_ID, CASE_ID, GOOD, MINOR, 
-                                           MAJOR, DAMAGE, CREA_BY, CREA_DATE, UPD_BY, UPD_DATE)
+                                           MAJOR, CREA_BY, CREA_DATE, UPD_BY, UPD_DATE)
                                            SELECT MAINTENANCE_ID = @MAINTENANCE_ID
                                             ,CASE_ID = ISNULL(B.[CASE_ID],'')
                                             ,GOOD = 1
                                             ,MINOR = ISNULL(A.[MINOR],'')
                                             ,MAJOR = ISNULL(A.[MAJOR],'')
-                                            ,DAMAGE = ISNULL(A.[DAMAGE],'')
                                             ,CREA_BY = @CREA_BY
                                             ,CREA_DATE = GETDATE()
                                             ,UPD_BY = @UPD_BY
