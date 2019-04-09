@@ -169,7 +169,33 @@ Partial Class Pages_ROX0100
     End Sub
 
     Protected Sub RepairDGV_RowDeleting(sender As Object, e As Data.ASPxDataDeletingEventArgs) Handles RepairDGV.RowDeleting
+        Dim loConn As IDbConnection
+        Dim loDb As New SC_Db
+        Dim lcCmd As String
+        Dim harga As String
+        Dim part As String
 
+        part = e.Values("KD_PART").ToString
+
+        loConn = loDb.GetConnection
+
+        lcCmd = "SELECT HARGA_PART FROM M_SPAREPART WHERE COMPANY_OFFICE_ID = '" & Session("K_COMPANY_OFFICE_ID") & "' "
+        lcCmd = lcCmd & "AND KD_PART = " & part & " "
+
+        harga = loDb.SqlExecQuery(lcCmd, loConn, True).Rows(0).Item(0).ToString
+
+        With sqlDSRepair
+            .DeleteParameters("REPAIR_ID").DefaultValue = KodeLbl.Text
+            .DeleteParameters("KD_PARTS").DefaultValue = part
+            .DeleteParameters("QTY").DefaultValue = e.Values("QTY_PART").ToString
+            .DeleteParameters("HARGA").DefaultValue = harga
+            .DeleteParameters("COMPANY_OFFICE_ID").DefaultValue = Session("K_COMPANY_OFFICE_ID")
+            .DeleteParameters("LOG").DefaultValue = KodeLbl.Text
+            .DeleteParameters("CREA_BY").DefaultValue = Session("K_USER_ID")
+            .DeleteParameters("UPD_BY").DefaultValue = Session("K_USER_ID")
+        End With
+
+        loConn.Close()
     End Sub
 
     Protected Sub RepairDGV_RowInserting(sender As Object, e As DevExpress.Web.Data.ASPxDataInsertingEventArgs) Handles RepairDGV.RowInserting
@@ -202,5 +228,7 @@ Partial Class Pages_ROX0100
             .InsertParameters("UPD_BY").DefaultValue = Session("K_USER_ID")
             '.Insert()
         End With
+
+        loConn.Close()
     End Sub
 End Class

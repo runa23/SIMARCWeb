@@ -69,7 +69,7 @@
                         </dx:ASPxComboBox>
                         <asp:SqlDataSource ID="SqlDSCompanyOffice" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:SIMARCConnectionString %>" 
-                            SelectCommand="SELECT C.COMPANY_OFFICE_ID
+                            SelectCommand="SELECT DISTINCT C.COMPANY_OFFICE_ID
 	                                                ,C.COMPANY_OFFICE
                                                 FROM M_COMPANY_OFFICE_MAP A
                                                 JOIN SYS_USER B ON A.COMPANY_OFFICE_MAP_ID = B.COMPANY_OFFICE_MAP_ID

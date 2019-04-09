@@ -149,19 +149,32 @@
                                     </dx:BootstrapGridViewTextColumn>
                                     <dx:BootstrapGridViewTextColumn Caption="Qty" FieldName="QTY_PART" 
                                         VisibleIndex="3">
+                                        <PropertiesTextEdit>
+                                            <ValidationSettings SetFocusOnError="True">
+                                                <RequiredField ErrorText="Tidak Boleh Kosong" IsRequired="True" />
+                                            </ValidationSettings>
+                                        </PropertiesTextEdit>
                                     </dx:BootstrapGridViewTextColumn>
                                     <dx:BootstrapGridViewComboBoxColumn Caption="Nama Sparepart" 
                                         FieldName="NAMA_PART" VisibleIndex="2">
                                         <PropertiesComboBox DataSourceID="SqlDSSparepart" TextField="NAMA_PART" 
                                             ValueField="KD_PART" ValueType="System.Int32">
+                                            <ValidationSettings SetFocusOnError="True">
+                                                <RequiredField IsRequired="True" />
+                                            </ValidationSettings>
                                         </PropertiesComboBox>
                                     </dx:BootstrapGridViewComboBoxColumn>
                                     <dx:BootstrapGridViewTextColumn FieldName="SATUAN_PART" ReadOnly="True" 
                                         VisibleIndex="5" Caption="Satuan">
+                                        <PropertiesTextEdit>
+                                            <ValidationSettings SetFocusOnError="true">
+                                                <RequiredField IsRequired="true" />
+                                            </ValidationSettings>
+                                        </PropertiesTextEdit>
                                         <SettingsEditForm Visible="False" />
                                     </dx:BootstrapGridViewTextColumn>
                                 </Columns>
-
+                                
                             </dx:BootstrapGridView>
                             <br />
                             <br />
@@ -243,23 +256,24 @@
                         <!-- SELECT REPAIR DETAIL -->
                         <asp:SqlDataSource ID="sqlDSRepair" runat="server"
                             ConnectionString="<%$ ConnectionStrings:SIMARCConnectionString %>"
-                            SelectCommand = "SELECT
-                                            A.REPAIR_ID,
-	                                        A.KD_PART,
-	                                        B.NAMA_PART,
-	                                        A.QTY_PART,
-                                            B.SATUAN_PART
-                                        FROM T_REPAIR_DETAIL A (NOLOCK)
-                                        INNER JOIN M_SPAREPART B (NOLOCK) ON A.KD_PART = B.KD_PART
+                            SelectCommand = "SELECT A.REPAIR_ID
+	                                        ,B.KD_PART
+	                                        ,C.NAMA_PART
+	                                        ,B.QTY_PART
+	                                        ,C.SATUAN_PART
+                                        FROM T_REPAIR A (NOLOCK)
+                                        JOIN T_REPAIR_DETAIL B (NOLOCK) ON A.REPAIR_ID = B.REPAIR_ID
+                                        JOIN M_SPAREPART C (NOLOCK) ON C.KD_PART = B.KD_PART
+	                                        AND C.COMPANY_OFFICE_ID = A.COMPANY_OFFICE_ID
                                         WHERE A.REPAIR_ID = @REPAIR_ID" 
                                         
                               InsertCommand="EXEC RPR0210 'INSERT', @REPAIR_ID, @KD_PART, @QTY, @HARGA, @CREA_BY, @UPD_BY
                                              EXEC RPR0110 @COMPANY_OFFICE_ID, @KD_PART, @HARGA, @LOG, @CREA_BY, @UPD_BY
-                                             UPDATE M_SPAREPART SET STOCK_PART = STOCK_PART - @QTY WHERE COMPANY_OFFICE_ID = @COMPANY_OFFICE_ID AND @KD_PART = @KD_PART"
+                                             UPDATE M_SPAREPART SET STOCK_PART = STOCK_PART - @QTY WHERE COMPANY_OFFICE_ID = @COMPANY_OFFICE_ID AND KD_PART = @KD_PART"
                                         
-                              DeleteCommand="DELETE FROM T_REPAIR_DETAIL WHERE REPAIR_ID = @REPAIR_ID AND KD_PART = @KD_PART 
-                                             EXEC RPR0110 @COMPANY_OFFICE_ID, @KD_PART, @HARGA, @LOG, @CREA_BY, @UPD_BY 
-                                             UPDATE M_SPAREPART SET STOCK_PART = STOCK_PART + @QTY WHERE COMPANY_OFFICE_ID = @COMPANY_OFFICE_ID AND @KD_PART = @KD_PART"                                        
+                              DeleteCommand="DELETE FROM T_REPAIR_DETAIL WHERE REPAIR_ID = @REPAIR_ID AND KD_PART = @KD_PARTS 
+                                             EXEC RPR0110 @COMPANY_OFFICE_ID, @KD_PARTS, @HARGA, @LOG, @CREA_BY, @UPD_BY 
+                                             UPDATE M_SPAREPART SET STOCK_PART = STOCK_PART + @QTY WHERE COMPANY_OFFICE_ID = @COMPANY_OFFICE_ID AND KD_PART = @KD_PARTS"                                        
                                         >
 
                             <InsertParameters>
@@ -274,7 +288,7 @@
                             </InsertParameters>
                             <DeleteParameters>
                                 <asp:Parameter Name="REPAIR_ID" Type="String" />
-                                <asp:Parameter Name="KD_PART" />
+                                <asp:Parameter Name="KD_PARTS" />
                                 <asp:Parameter Name="QTY" />
                                 <asp:Parameter Name="HARGA" />
                                 <asp:Parameter Name="COMPANY_OFFICE_ID" Type="String" />
