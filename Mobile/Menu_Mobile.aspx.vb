@@ -109,4 +109,8 @@ Partial Class Menu_Mobile
             label.Text = LOsTR
         End If
     End Sub
+    Protected Sub LogOut_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Session.Abandon()
+        Response.Redirect("Default.aspx")
+    End Sub
 End Class

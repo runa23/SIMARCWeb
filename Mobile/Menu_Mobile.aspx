@@ -125,8 +125,11 @@
                         </div>
                         <br />
                         <div class="right">
-                            <a href="Default.aspx">
-                            <img src="Images/Exit.png" alt="Logout" title="Log Out" style="height: 22px; width: 22px" /></a></div>
+                            <%--<a href="Default.aspx">--%>
+                            <asp:ImageButton id="LogOut" runat="server" ImageUrl="~/Images/Exit.png" Height="22px" Width="22px" OnClick="LogOut_Click" />
+                            <%--<img src="Images/Exit.png" alt="Logout" title="Log Out" style="height: 22px; width: 22px" />--%>
+                            
+                            </a></div>
                         
                         <div class="right">
                             <a href="Menu_Mobile.aspx?page=user">

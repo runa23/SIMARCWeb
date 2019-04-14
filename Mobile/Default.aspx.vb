@@ -68,6 +68,13 @@ Optional ByVal MessageType As BootstrapAlertType = BootstrapAlertType.Plain,
             Username = Request.Form("UsernameTxt")
             password = Request.Form("PasswordTxt")
 
+            If Username = "" And password = "" Then
+                loException.Add("Validasi", "Username & Password tidak boleh kosong!")
+                Exit Try
+            ElseIf Username = "" Or password = "" Then
+                loException.Add("Validasi", "Username atau Password tidak boleh kosong!")
+            End If
+
             loRTN = loService.Login(Username.ToUpper, password.ToUpper)
             loService.Close()
 
@@ -127,6 +134,8 @@ Optional ByVal MessageType As BootstrapAlertType = BootstrapAlertType.Plain,
         Catch ex As Exception
             loException.Add(ex)
         End Try
+
+        'Response.Redirect("~/Default.aspx")
 
         If loException.Haserror Then
             LblKeterangan.Visible = True

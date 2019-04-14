@@ -247,7 +247,8 @@
 	                                            ,NAMA_PART
                                                 ,HARGA_PART
                                             FROM M_SPAREPART (NOLOCK)
-                                            WHERE COMPANY_OFFICE_ID = @COMPANY_OFFICE_ID">
+                                            WHERE STOCK_PART &gt; 0
+                                            COMPANY_OFFICE_ID = '@COMPANY_OFFICE_ID">
                             <SelectParameters>
                                 <asp:Parameter Name="COMPANY_OFFICE_ID" Type="String" />
                             </SelectParameters>

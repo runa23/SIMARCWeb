@@ -15,6 +15,7 @@
 <html>
 
 <head runat="server">
+    <link rel="Shortcut Icon" href="Images/Wals.png" />
     <title>Login</title>
     <link rel="stylesheet" href="Style/Login/CSS/bootstrap v4.1.3.min.css" >
     <script src="Style/Login/jQuery/jQuery v3.3.1.min.js"></script>
@@ -52,15 +53,16 @@
 							<input type="password" name="PasswordTxt" class="form-control input_pass" placeholder="password" />
 						</div>
 					<%--</form>--%>
-				</div>
+				<%--</div>--%>
 
-				<div class="d-flex justify-content-center mt-3 login_container">
+				<div class="d-flex justify-content-center mt-5">
                     <dx:ASPxButton ID="btnLogin" runat="server" Text="Login" CssClass="btn login_btn"></dx:ASPxButton>
                 </div>
-                <div class="d-flex justify-content-center mt-3 login_container">
+                <div class="d-flex justify-content-center mt-3">
                     <dx:ASPxLabel ID="LblKeterangan" runat="server" ForeColor="White"></dx:ASPxLabel>
 				</div>
                 </form>
+                </div>
 			</div>
 		</div>
 	</div>
