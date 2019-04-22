@@ -105,7 +105,7 @@
                     Collapsible="true" RightToLeft="False" >
                     <Styles>
                         <ExpandButton CssClass="btn"></ExpandButton>
-                        <ExpandBar BackColor="#c93030"></ExpandBar>
+                        <ExpandBar BackColor="#336699"></ExpandBar>
                     </Styles>
                     <SettingsCollapsing AnimationType="Fade" 
                                         ExpandEffect="Slide">

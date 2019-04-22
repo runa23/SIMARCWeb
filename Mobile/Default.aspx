@@ -17,6 +17,7 @@
 <head runat="server">
     <link rel="Shortcut Icon" href="Images/Wals.png" />
     <title>Login</title>
+    <meta content='width=device-width, initial-scale=1.0, user-scalable=1 ' name='viewport' />
     <link rel="stylesheet" href="Style/Login/CSS/bootstrap v4.1.3.min.css" >
     <script src="Style/Login/jQuery/jQuery v3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" >
